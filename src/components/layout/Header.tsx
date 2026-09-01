@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { NAV_ITEMS } from '@/constants/navigation';
 
 export default function Header() {
@@ -12,9 +13,17 @@ export default function Header() {
       <div className="container-responsive">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-secondary">🏎️</span>
-            <span>Bilklubben</span>
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="relative w-12 h-12 md:w-14 md:h-14">
+              <Image
+                src="/logo.png"
+                alt="Bilklubben Podcast"
+                fill
+                priority
+                className="object-cover rounded-lg"
+              />
+            </div>
+            <span className="font-bold text-lg md:text-xl hidden sm:inline">Bilklubben</span>
           </Link>
 
           {/* Desktop Navigation */}

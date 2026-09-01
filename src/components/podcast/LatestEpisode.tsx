@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui';
 import { formatDate } from '@/utils/format';
 import { PodcastEpisode } from '@/types';
@@ -16,10 +17,17 @@ export default function LatestEpisode({ episode }: LatestEpisodeProps) {
         <h2 className="section-title">Seneste Episode</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Podcast Cover */}
+          {/* Podcast Logo */}
           <div className="flex justify-center">
-            <div className="w-full max-w-sm aspect-square bg-gray-300 rounded-lg shadow-lg flex items-center justify-center text-gray-500">
-              <span>Episodebillede</span>
+            <div className="w-full max-w-sm aspect-square relative rounded-lg shadow-lg overflow-hidden bg-gradient-to-br from-purple-600 to-teal-500">
+              <Image
+                src="/logo.png"
+                alt="Bilklubben Podcast"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+                className="object-cover"
+              />
             </div>
           </div>
 
